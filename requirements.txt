@@ -1,0 +1,8 @@
+# Core dependencies
+PyYAML>=6.0
+pathlib>=1.0.1
+
+# Optional: For future enhancements
+# networkx>=3.0  # For dependency graph visualization
+# pandas>=2.0.0  # For data analysis
+# plotly>=5.0.0  # For interactive visualizations

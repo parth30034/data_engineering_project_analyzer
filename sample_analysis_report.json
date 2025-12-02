@@ -1,0 +1,540 @@
+{
+  "scan_metadata": {
+    "project_path": "/home/claude/sample_de_project",
+    "project_name": "sample_de_project",
+    "scan_timestamp": "2025-12-02T15:53:23.579201",
+    "analyzer_version": "1.0.0"
+  },
+  "project_statistics": {
+    "total_files": 6,
+    "total_size_bytes": 19665,
+    "file_types": {
+      ".py": 3,
+      ".yaml": 1,
+      ".sql": 2
+    },
+    "directories": [
+      "utils",
+      "config",
+      "databricks_notebooks",
+      "etl_jobs",
+      "sql"
+    ],
+    "total_directories": 5,
+    "total_loc": 504,
+    "files_with_spark": 3,
+    "files_with_sql": 5
+  },
+  "connector_summary": {
+    "postgresql": {
+      "total_files": 1,
+      "total_instances": 3,
+      "type": "database",
+      "files": [
+        "utils/data_validator.py"
+      ]
+    },
+    "mongodb": {
+      "total_files": 1,
+      "total_instances": 4,
+      "type": "nosql",
+      "files": [
+        "utils/data_validator.py"
+      ]
+    },
+    "bigquery": {
+      "total_files": 1,
+      "total_instances": 3,
+      "type": "datawarehouse",
+      "files": [
+        "utils/data_validator.py"
+      ]
+    },
+    "databricks": {
+      "total_files": 2,
+      "total_instances": 7,
+      "type": "platform",
+      "files": [
+        "databricks_notebooks/streaming_pipeline.py",
+        "etl_jobs/customer_etl.py"
+      ]
+    },
+    "snowflake": {
+      "total_files": 1,
+      "total_instances": 3,
+      "type": "database",
+      "files": [
+        "etl_jobs/customer_etl.py"
+      ]
+    },
+    "s3": {
+      "total_files": 2,
+      "total_instances": 4,
+      "type": "storage",
+      "files": [
+        "etl_jobs/customer_etl.py",
+        "config/pipeline_config.yaml"
+      ]
+    }
+  },
+  "import_summary": {
+    "total_unique_imports": 16,
+    "top_imports": [
+      [
+        "from pyspark.sql import SparkSession",
+        2
+      ],
+      [
+        "import psycopg2",
+        1
+      ],
+      [
+        "import pymongo",
+        1
+      ],
+      [
+        "from google.cloud import bigquery",
+        1
+      ],
+      [
+        "import pandas as pd",
+        1
+      ],
+      [
+        "from typing import Dict, List",
+        1
+      ],
+      [
+        "import logging",
+        1
+      ],
+      [
+        "from pyspark.sql.functions import *",
+        1
+      ],
+      [
+        "from pyspark.sql.types import *",
+        1
+      ],
+      [
+        "from delta.tables import *",
+        1
+      ],
+      [
+        "import json",
+        1
+      ],
+      [
+        "from pyspark.sql.functions import col, when, lit, current_timestamp",
+        1
+      ],
+      [
+        "import snowflake.connector",
+        1
+      ],
+      [
+        "import boto3",
+        1
+      ],
+      [
+        "from datetime import datetime",
+        1
+      ],
+      [
+        "import sys",
+        1
+      ]
+    ]
+  },
+  "sql_objects_summary": {
+    "total_tables": 19,
+    "total_views": 1,
+    "tables": [
+      "cloud",
+      "customer",
+      "customer_daily_metrics",
+      "customer_metrics",
+      "customers_staging",
+      "databricks",
+      "datetime",
+      "delta",
+      "functions",
+      "kafka",
+      "orders_staging",
+      "products_staging",
+      "s3",
+      "sql",
+      "staging",
+      "tables",
+      "the",
+      "types",
+      "typing"
+    ],
+    "views": [
+      "customer_daily_metrics"
+    ]
+  },
+  "files": [
+    {
+      "absolute_path": "/home/claude/sample_de_project/utils/data_validator.py",
+      "relative_path": "utils/data_validator.py",
+      "filename": "data_validator.py",
+      "extension": ".py",
+      "directory": "utils",
+      "size_bytes": 7694,
+      "modified_time": 1764690759.6451232,
+      "file_type": "python",
+      "lines_of_code": 203,
+      "total_lines": 244,
+      "connectors": {
+        "postgresql": {
+          "count": 3,
+          "type": "database",
+          "instances": [
+            {
+              "type": "keyword",
+              "pattern": "psycopg2",
+              "connector_type": "database"
+            },
+            {
+              "type": "keyword",
+              "pattern": "import psycopg2",
+              "connector_type": "database"
+            },
+            {
+              "type": "connection",
+              "pattern": "psycopg2.connect",
+              "match": "psycopg2.connect",
+              "line_number": 28,
+              "connector_type": "database"
+            }
+          ]
+        },
+        "mongodb": {
+          "count": 4,
+          "type": "nosql",
+          "instances": [
+            {
+              "type": "keyword",
+              "pattern": "pymongo",
+              "connector_type": "nosql"
+            },
+            {
+              "type": "keyword",
+              "pattern": "MongoClient",
+              "connector_type": "nosql"
+            },
+            {
+              "type": "connection",
+              "pattern": "MongoClient",
+              "match": "MongoClient",
+              "line_number": 44,
+              "connector_type": "nosql"
+            },
+            {
+              "type": "connection",
+              "pattern": "pymongo.MongoClient",
+              "match": "pymongo.MongoClient",
+              "line_number": 44,
+              "connector_type": "nosql"
+            }
+          ]
+        },
+        "bigquery": {
+          "count": 3,
+          "type": "datawarehouse",
+          "instances": [
+            {
+              "type": "keyword",
+              "pattern": "bigquery.Client",
+              "connector_type": "datawarehouse"
+            },
+            {
+              "type": "keyword",
+              "pattern": "from google.cloud import bigquery",
+              "connector_type": "datawarehouse"
+            },
+            {
+              "type": "connection",
+              "pattern": "bigquery.Client",
+              "match": "bigquery.Client",
+              "line_number": 53,
+              "connector_type": "datawarehouse"
+            }
+          ]
+        }
+      },
+      "imports": [
+        "import psycopg2",
+        "import pymongo",
+        "from google.cloud import bigquery",
+        "import pandas as pd",
+        "from typing import Dict, List",
+        "import logging"
+      ],
+      "sql_objects": {
+        "tables": [
+          "cloud",
+          "typing"
+        ],
+        "views": [],
+        "schemas": []
+      },
+      "has_spark": false,
+      "has_sql": true
+    },
+    {
+      "absolute_path": "/home/claude/sample_de_project/databricks_notebooks/streaming_pipeline.py",
+      "relative_path": "databricks_notebooks/streaming_pipeline.py",
+      "filename": "streaming_pipeline.py",
+      "extension": ".py",
+      "directory": "databricks_notebooks",
+      "size_bytes": 2962,
+      "modified_time": 1764690734.4468002,
+      "file_type": "databricks_notebook",
+      "lines_of_code": 42,
+      "total_lines": 115,
+      "connectors": {
+        "databricks": {
+          "count": 4,
+          "type": "platform",
+          "instances": [
+            {
+              "type": "keyword",
+              "pattern": "dbutils",
+              "connector_type": "platform"
+            },
+            {
+              "type": "keyword",
+              "pattern": "spark.sql",
+              "connector_type": "platform"
+            },
+            {
+              "type": "keyword",
+              "pattern": "display(",
+              "connector_type": "platform"
+            },
+            {
+              "type": "connection",
+              "pattern": "dbutils.secrets.get",
+              "match": "dbutils.secrets.get",
+              "line_number": 21,
+              "connector_type": "platform"
+            }
+          ]
+        }
+      },
+      "imports": [
+        "from pyspark.sql import SparkSession",
+        "from pyspark.sql.functions import *",
+        "from pyspark.sql.types import *",
+        "from delta.tables import *",
+        "import json"
+      ],
+      "sql_objects": {
+        "tables": [
+          "types",
+          "functions",
+          "kafka",
+          "delta",
+          "tables",
+          "databricks",
+          "sql"
+        ],
+        "views": [],
+        "schemas": []
+      },
+      "has_spark": true,
+      "has_sql": true
+    },
+    {
+      "absolute_path": "/home/claude/sample_de_project/etl_jobs/customer_etl.py",
+      "relative_path": "etl_jobs/customer_etl.py",
+      "filename": "customer_etl.py",
+      "extension": ".py",
+      "directory": "etl_jobs",
+      "size_bytes": 3648,
+      "modified_time": 1764690706.3884404,
+      "file_type": "pyspark",
+      "lines_of_code": 85,
+      "total_lines": 119,
+      "connectors": {
+        "snowflake": {
+          "count": 3,
+          "type": "database",
+          "instances": [
+            {
+              "type": "keyword",
+              "pattern": "snowflake.connector",
+              "connector_type": "database"
+            },
+            {
+              "type": "keyword",
+              "pattern": "import snowflake",
+              "connector_type": "database"
+            },
+            {
+              "type": "connection",
+              "pattern": "snowflake.connector.connect",
+              "match": "snowflake.connector.connect",
+              "line_number": 77,
+              "connector_type": "database"
+            }
+          ]
+        },
+        "s3": {
+          "count": 3,
+          "type": "storage",
+          "instances": [
+            {
+              "type": "keyword",
+              "pattern": "boto3",
+              "connector_type": "storage"
+            },
+            {
+              "type": "keyword",
+              "pattern": "s3a://",
+              "connector_type": "storage"
+            },
+            {
+              "type": "connection",
+              "pattern": "boto3.client\\('s3'\\)",
+              "match": "boto3.client('s3')",
+              "line_number": 24,
+              "connector_type": "storage"
+            }
+          ]
+        },
+        "databricks": {
+          "count": 3,
+          "type": "platform",
+          "instances": [
+            {
+              "type": "keyword",
+              "pattern": "spark.read",
+              "connector_type": "platform"
+            },
+            {
+              "type": "keyword",
+              "pattern": "spark.sql",
+              "connector_type": "platform"
+            },
+            {
+              "type": "connection",
+              "pattern": "spark.read",
+              "match": "spark.read",
+              "line_number": 36,
+              "connector_type": "platform"
+            }
+          ]
+        }
+      },
+      "imports": [
+        "from pyspark.sql import SparkSession",
+        "from pyspark.sql.functions import col, when, lit, current_timestamp",
+        "import snowflake.connector",
+        "import boto3",
+        "from datetime import datetime",
+        "import sys"
+      ],
+      "sql_objects": {
+        "tables": [
+          "sql",
+          "datetime",
+          "s3",
+          "functions"
+        ],
+        "views": [],
+        "schemas": []
+      },
+      "has_spark": true,
+      "has_sql": true
+    },
+    {
+      "absolute_path": "/home/claude/sample_de_project/config/pipeline_config.yaml",
+      "relative_path": "config/pipeline_config.yaml",
+      "filename": "pipeline_config.yaml",
+      "extension": ".yaml",
+      "directory": "config",
+      "size_bytes": 1822,
+      "modified_time": 1764690775.1643221,
+      "file_type": "config",
+      "lines_of_code": 67,
+      "total_lines": 90,
+      "connectors": {
+        "s3": {
+          "count": 1,
+          "type": "storage",
+          "instances": [
+            {
+              "type": "keyword",
+              "pattern": "s3://",
+              "connector_type": "storage"
+            }
+          ]
+        }
+      },
+      "imports": [],
+      "sql_objects": {
+        "tables": [],
+        "views": [],
+        "schemas": []
+      },
+      "has_spark": true,
+      "has_sql": false
+    },
+    {
+      "absolute_path": "/home/claude/sample_de_project/sql/customer_aggregation.sql",
+      "relative_path": "sql/customer_aggregation.sql",
+      "filename": "customer_aggregation.sql",
+      "extension": ".sql",
+      "directory": "sql",
+      "size_bytes": 1346,
+      "modified_time": 1764690717.8485873,
+      "file_type": "sql",
+      "lines_of_code": 46,
+      "total_lines": 50,
+      "connectors": {},
+      "imports": [],
+      "sql_objects": {
+        "tables": [
+          "customer_metrics",
+          "staging",
+          "customer",
+          "customers_staging",
+          "orders_staging",
+          "products_staging",
+          "the",
+          "customer_daily_metrics"
+        ],
+        "views": [
+          "customer_daily_metrics"
+        ],
+        "schemas": []
+      },
+      "has_spark": false,
+      "has_sql": true
+    },
+    {
+      "absolute_path": "/home/claude/sample_de_project/sql/table_definitions.sql",
+      "relative_path": "sql/table_definitions.sql",
+      "filename": "table_definitions.sql",
+      "extension": ".sql",
+      "directory": "sql",
+      "size_bytes": 2193,
+      "modified_time": 1764690789.4445052,
+      "file_type": "sql",
+      "lines_of_code": 61,
+      "total_lines": 70,
+      "connectors": {},
+      "imports": [],
+      "sql_objects": {
+        "tables": [],
+        "views": [],
+        "schemas": []
+      },
+      "has_spark": false,
+      "has_sql": true
+    }
+  ]
+}

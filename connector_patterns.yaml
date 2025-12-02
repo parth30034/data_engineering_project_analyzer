@@ -1,0 +1,177 @@
+# Connector Patterns Configuration
+# Patterns to identify different database and service connections
+
+connectors:
+  # Relational Databases
+  snowflake:
+    keywords:
+      - "snowflake.connector"
+      - "SNOWFLAKE_ACCOUNT"
+      - "from snowflake"
+      - "import snowflake"
+    connection_patterns:
+      - "snowflake.connector.connect"
+      - "create_engine.*snowflake"
+    type: "database"
+    
+  postgresql:
+    keywords:
+      - "psycopg2"
+      - "postgresql://"
+      - "import psycopg2"
+    connection_patterns:
+      - "psycopg2.connect"
+      - "create_engine.*postgresql"
+    type: "database"
+    
+  mysql:
+    keywords:
+      - "mysql.connector"
+      - "pymysql"
+      - "MySQLdb"
+    connection_patterns:
+      - "mysql.connector.connect"
+      - "pymysql.connect"
+      - "create_engine.*mysql"
+    type: "database"
+    
+  redshift:
+    keywords:
+      - "redshift_connector"
+      - "redshift://"
+    connection_patterns:
+      - "redshift_connector.connect"
+      - "create_engine.*redshift"
+    type: "database"
+    
+  # NoSQL Databases
+  mongodb:
+    keywords:
+      - "pymongo"
+      - "MongoClient"
+      - "from pymongo"
+    connection_patterns:
+      - "MongoClient"
+      - "pymongo.MongoClient"
+    type: "nosql"
+    
+  cassandra:
+    keywords:
+      - "cassandra.cluster"
+      - "from cassandra"
+    connection_patterns:
+      - "Cluster"
+      - "cassandra.cluster.Cluster"
+    type: "nosql"
+    
+  # Cloud Storage
+  s3:
+    keywords:
+      - "boto3"
+      - "s3fs"
+      - "s3a://"
+      - "s3://"
+    connection_patterns:
+      - "boto3.client\\('s3'\\)"
+      - "boto3.resource\\('s3'\\)"
+      - "s3fs.S3FileSystem"
+    type: "storage"
+    
+  azure_blob:
+    keywords:
+      - "azure.storage.blob"
+      - "BlobServiceClient"
+      - "wasbs://"
+    connection_patterns:
+      - "BlobServiceClient"
+      - "azure.storage.blob"
+    type: "storage"
+    
+  gcs:
+    keywords:
+      - "google.cloud.storage"
+      - "storage.Client"
+      - "gs://"
+    connection_patterns:
+      - "storage.Client"
+      - "google.cloud.storage"
+    type: "storage"
+    
+  # Data Warehouses
+  bigquery:
+    keywords:
+      - "google.cloud.bigquery"
+      - "bigquery.Client"
+      - "from google.cloud import bigquery"
+    connection_patterns:
+      - "bigquery.Client"
+      - "google.cloud.bigquery"
+    type: "datawarehouse"
+    
+  # Spark/Databricks
+  databricks:
+    keywords:
+      - "dbutils"
+      - "spark.read"
+      - "spark.sql"
+      - "display("
+    connection_patterns:
+      - "dbutils.secrets.get"
+      - "spark.read"
+    type: "platform"
+    
+  # APIs and Message Queues
+  kafka:
+    keywords:
+      - "kafka-python"
+      - "KafkaProducer"
+      - "KafkaConsumer"
+    connection_patterns:
+      - "KafkaProducer"
+      - "KafkaConsumer"
+    type: "messaging"
+    
+  rest_api:
+    keywords:
+      - "requests."
+      - "import requests"
+      - "http.client"
+    connection_patterns:
+      - "requests.get"
+      - "requests.post"
+      - "requests.put"
+    type: "api"
+
+# File type identification
+file_types:
+  python:
+    extensions: [".py"]
+    description: "Python scripts"
+    
+  pyspark:
+    extensions: [".py"]
+    keywords: 
+      - "from pyspark"
+      - "import pyspark"
+      - "SparkSession"
+    description: "PySpark scripts"
+    
+  sql:
+    extensions: [".sql", ".ddl", ".dml"]
+    description: "SQL files"
+    
+  databricks_notebook:
+    extensions: [".py", ".scala", ".sql", ".r"]
+    keywords:
+      - "# Databricks notebook source"
+      - "# MAGIC"
+      - "# COMMAND ----------"
+    description: "Databricks notebooks"
+    
+  config:
+    extensions: [".yaml", ".yml", ".json", ".conf", ".ini", ".properties"]
+    description: "Configuration files"
+    
+  shell:
+    extensions: [".sh", ".bash"]
+    description: "Shell scripts"
